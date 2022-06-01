@@ -540,6 +540,12 @@ class VlcPlayerController extends ValueNotifier<VlcPlayerValue> {
     await vlcPlayerPlatform.seekTo(_viewId, position);
   }
 
+  /// Sets the video's current position as a percentage between 0.0 and 1.0.
+  Future<void> setPosition(double position) async {
+    _throwIfNotInitialized('setPosition');
+    await vlcPlayerPlatform.setPosition(_viewId, position);
+  }
+
   /// Get the video timestamp in millisecond
   Future<int> getTime() async {
     var position = await getPosition();

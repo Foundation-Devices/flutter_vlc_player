@@ -122,6 +122,11 @@ abstract class VlcPlayerPlatform extends PlatformInterface {
     throw _unimplemented('seekTo');
   }
 
+  /// Set video position as percentage between 0.0 and 1.0.
+  Future<void> setPosition(int viewId, double position) {
+    throw _unimplemented('setPosition');
+  }
+
   /// Same as getPosition
   /// Gets the video position as [Duration] from the start.
   Future<Duration> getTime(int viewId) {

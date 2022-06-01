@@ -154,6 +154,12 @@ public class FlutterVlcPlayerBuilder implements Messages.VlcPlayerApi {
     }
 
     @Override
+    public void setPosition(Messages.PercentagePositionMessage arg) {
+        FlutterVlcPlayer player = vlcPlayers.get(arg.getViewId());
+        player.setPosition(arg.getPosition().floatValue());
+    }
+
+    @Override
     public Messages.PositionMessage position(Messages.ViewMessage arg) {
         FlutterVlcPlayer player = vlcPlayers.get(arg.getViewId());
         Messages.PositionMessage message = new Messages.PositionMessage();

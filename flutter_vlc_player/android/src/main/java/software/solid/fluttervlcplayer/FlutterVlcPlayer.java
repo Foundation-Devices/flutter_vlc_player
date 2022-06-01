@@ -399,6 +399,10 @@ final class FlutterVlcPlayer implements PlatformView {
         mediaPlayer.setTime(location);
     }
 
+    void setPosition(float position) {
+        mediaPlayer.setPosition(position);
+    }
+
     long getPosition() {
         return mediaPlayer.getTime();
     }

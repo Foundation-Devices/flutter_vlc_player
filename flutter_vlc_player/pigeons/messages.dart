@@ -48,6 +48,11 @@ class PositionMessage {
   int? position;
 }
 
+class PercentagePositionMessage {
+  int? viewId;
+  double? position;
+}
+
 class DurationMessage {
   int? viewId;
   int? duration;
@@ -161,6 +166,7 @@ abstract class VlcPlayerApi {
   BooleanMessage isSeekable(ViewMessage msg);
   void setLooping(LoopingMessage msg);
   void seekTo(PositionMessage msg);
+  void setPosition(PercentagePositionMessage msg);
   PositionMessage position(ViewMessage msg);
   DurationMessage duration(ViewMessage msg);
   void setVolume(VolumeMessage msg);

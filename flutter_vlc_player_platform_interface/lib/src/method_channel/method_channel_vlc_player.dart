@@ -258,6 +258,13 @@ class MethodChannelVlcPlayer extends VlcPlayerPlatform {
   }
 
   @override
+  Future<void> setPosition(int viewId, double position) async {
+    return await _api.setPosition(PercentagePositionMessage()
+      ..viewId = viewId
+      ..position = position);
+  }
+
+  @override
   Future<Duration> getPosition(int viewId) async {
     var response = await _api.position(ViewMessage()..viewId = viewId);
     return Duration(milliseconds: response.position!);
