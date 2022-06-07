@@ -531,12 +531,13 @@ class VlcPlayerController extends ValueNotifier<VlcPlayerValue> {
   /// If [moment] is outside of the video's full range it will be automatically
   /// and silently clamped.
   Future<void> seekTo(Duration position) async {
-    _throwIfNotInitialized('seekTo');
-    if (position > value.duration) {
-      position = value.duration;
-    } else if (position < Duration.zero) {
-      position = Duration.zero;
-    }
+    // Don't clamp
+//     _throwIfNotInitialized('seekTo');
+//     if (position > value.duration) {
+//       position = value.duration;
+//     } else if (position < Duration.zero) {
+//       position = Duration.zero;
+//     }
     await vlcPlayerPlatform.seekTo(_viewId, position);
   }
 
