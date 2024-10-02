@@ -1,3 +1,47 @@
+## 7.4.2
+* fixed getVolume #486
+  Credits to pinpong (https://github.com/pinpong)
+* updated MobileVLCKit & libvlc
+  Credits to pinpong (https://github.com/pinpong)
+* Fix: Unable to replay when status is stopped #449
+  Credits to Virczz (https://github.com/Virczz) 
+
+## 7.4.1
+* Add support for Flutter 3.16
+  Credits to thearaks (https://github.com/thearaks)
+
+## 7.4.0
+* Important change: Removed [AutomaticKeepAliveClientMixin](https://api.flutter.dev/flutter/widgets/AutomaticKeepAliveClientMixin-mixin.html) from plugin widget
+* Mobile VLC update to 3.6.0-eap9
+* Allow background playback
+  Credits to Oliver Nitzschke (https://github.com/pinpong)
+* fix instructions for proguard
+  Credits to Luiz Fernando Baldo Marques (https://github.com/luizbaldo)
+
+## 7.3.1
+* Restore Flutter 3.3-3.7 compatibility
+  Credits to Yang Fang (https://github.com/yangsfang)
+
+## 7.3.0
+* Fix http-user-agent & reuse options on iOS
+  Credits to Afriza N. Arief (https://github.com/afriza)
+* Update to Dart 3 and Flutter 3.13
+  Credits to romain.gyh (https://github.com/romaingyh)
+
+## 7.2.0
+* Update to latest VLCKit sdks
+Credits to Mitch Ross (https://github.com/mitchross)
+
+## 7.1.5
+* Fix plugin destructor (https://github.com/solid-software/flutter_vlc_player/issues/237)
+
+## 7.1.4
+* Interim release to fix Flutter 3 issues
+
+## 7.1.3
+* Added support for multi-window mode in Android.
+Credits to Andy Chentsov (https://github.com/andyduke).
+
 ## 7.1.2
 * Add Hybrid composition support for Android.
 

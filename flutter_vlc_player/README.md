@@ -1,4 +1,8 @@
 #  VLC Player Plugin
+[![style: solid](https://img.shields.io/badge/style-solid-orange)](https://pub.dev/packages/solid_lints)
+[![flutter_vlc_player](https://nokycucwgzweensacwfy.supabase.co/functions/v1/get_project_badge?projectId=148)](https://nokycucwgzweensacwfy.supabase.co/functions/v1/get_project_url?projectId=148)
+
+
 A VLC-powered alternative to Flutter's video_player that supports iOS and Android.
 
 <div>
@@ -87,7 +91,6 @@ android {
    buildTypes {
       release {
          minifyEnabled true
-         useProguard true
          proguardFiles getDefaultProguardFile(
                  'proguard-android-optimize.txt'),
                  'proguard-rules.pro'
@@ -99,6 +102,25 @@ android {
 2. Create `android/app/proguard-rules.pro`, add the following lines:
 ```proguard
 -keep class org.videolan.libvlc.** { *; }
+```
+<hr>
+
+#### Android multi-window support
+
+To enable multi-window support in your Android application, you need to make changes to `AndroidManifest.xml`, add the `android:resizeableActivity` key for the main activity, as well as the `android.allow_multiple_resumed_activities` metadata for application:
+```xml
+<manifest ...>
+  <application ...>
+    <activity ...
+      android:resizeableActivity="true">
+      ...
+    </activity>
+    ...
+    <meta-data
+      android:name="android.allow_multiple_resumed_activities"
+      android:value="true" />
+  </application>
+</manifest>
 ```
 
 <br>
