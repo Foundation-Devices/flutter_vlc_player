@@ -157,6 +157,13 @@ public class VLCViewBuilder: NSObject, VlcPlayerApi{
 
         player?.seek(position: input.position)
     }
+
+    public func setPosition(_ input: PercentagePositionMessage, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
+
+        let player = getPlayer(viewId: input.viewId)
+
+        player?.setPosition(position: input.position)
+    }
     
     public func position(_ input: ViewMessage, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) -> PositionMessage? {
         

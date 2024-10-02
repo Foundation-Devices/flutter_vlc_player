@@ -529,16 +529,22 @@ class VlcPlayerController extends ValueNotifier<VlcPlayerValue> {
   /// If [moment] is outside of the video's full range it will be automatically
   /// and silently clamped.
   Future<void> seekTo(Duration position) async {
-    _throwIfNotInitialized('seekTo');
-    final Duration newPosition;
-    if (position > value.duration) {
-      newPosition = value.duration;
-    } else if (position < Duration.zero) {
-      newPosition = Duration.zero;
-    } else {
-      newPosition = position;
-    }
-    await vlcPlayerPlatform.seekTo(_viewId, newPosition);
+    // _throwIfNotInitialized('seekTo');
+    // final Duration newPosition;
+    // if (position > value.duration) {
+    //   newPosition = value.duration;
+    // } else if (position < Duration.zero) {
+    //   newPosition = Duration.zero;
+    // } else {
+    //   newPosition = position;
+    // }
+    // await vlcPlayerPlatform.seekTo(_viewId, newPosition);
+  }
+
+  /// Sets the video's current position as a percentage between 0.0 and 1.0.
+  Future<void> setPosition(double position) async {
+    _throwIfNotInitialized('setPosition');
+    await vlcPlayerPlatform.setPosition(_viewId, position);
   }
 
   /// Get the video timestamp in millisecond

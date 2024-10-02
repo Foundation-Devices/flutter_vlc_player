@@ -78,6 +78,11 @@ public class VLCViewController: NSObject, FlutterPlatformView {
         
         self.vlcMediaPlayer.time = VLCTime(number: position ?? 0)
     }
+
+    public func setPosition(position: NSNumber?) {
+
+        self.vlcMediaPlayer.position = position?.floatValue ?? 0
+    }
     
     public func position() -> NSNumber? {
         
