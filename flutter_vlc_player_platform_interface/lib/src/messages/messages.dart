@@ -636,7 +636,8 @@ class VlcPlayerApi {
   /// Constructor for [VlcPlayerApi].  The [binaryMessenger] named argument is
   /// available for dependency injection.  If it is left null, the default
   /// BinaryMessenger will be used which routes to the host platform.
-  VlcPlayerApi({BinaryMessenger? binaryMessenger}) : _binaryMessenger = binaryMessenger;
+  VlcPlayerApi({BinaryMessenger? binaryMessenger})
+      : _binaryMessenger = binaryMessenger;
 
   Future<void> initialize() async {
     final BasicMessageChannel<Object?> channel = BasicMessageChannel<Object?>(
@@ -909,7 +910,7 @@ class VlcPlayerApi {
       binaryMessenger: _binaryMessenger,
     );
     final Map<Object?, Object?>? replyMap =
-    await channel.send(encoded) as Map<Object?, Object?>?;
+        await channel.send(encoded) as Map<Object?, Object?>?;
     if (replyMap == null) {
       throw PlatformException(
         code: 'channel-error',
@@ -930,9 +931,11 @@ class VlcPlayerApi {
   Future<void> setPosition(PercentagePositionMessage arg) async {
     final Object encoded = arg.encode();
     final BasicMessageChannel<Object?> channel = BasicMessageChannel<Object?>(
-        'dev.flutter.pigeon.VlcPlayerApi.setPosition', const StandardMessageCodec(), binaryMessenger: _binaryMessenger);
+        'dev.flutter.pigeon.VlcPlayerApi.setPosition',
+        const StandardMessageCodec(),
+        binaryMessenger: _binaryMessenger);
     final Map<Object?, Object?>? replyMap =
-    await channel.send(encoded) as Map<Object?, Object?>?;
+        await channel.send(encoded) as Map<Object?, Object?>?;
     if (replyMap == null) {
       throw PlatformException(
         code: 'channel-error',
@@ -940,7 +943,8 @@ class VlcPlayerApi {
         details: null,
       );
     } else if (replyMap['error'] != null) {
-      final Map<Object?, Object?> error = (replyMap['error'] as Map<Object?, Object?>?)!;
+      final Map<Object?, Object?> error =
+          (replyMap['error'] as Map<Object?, Object?>?)!;
       throw PlatformException(
         code: (error['code'] as String?)!,
         message: error['message'] as String?,
@@ -950,7 +954,6 @@ class VlcPlayerApi {
       // noop
     }
   }
-
 
   Future<PositionMessage> position(ViewMessage arg) async {
     final Object encoded = arg.encode();
