@@ -1,6 +1,6 @@
 import 'package:pigeon/pigeon_lib.dart';
 
-//ignore: prefer-match-file-name
+//ignore: prefer_match_file_name
 class ViewMessage {
   int? viewId;
 }
@@ -76,7 +76,7 @@ class SnapshotMessage {
 
 class SpuTracksMessage {
   int? viewId;
-  Map? subtitles;
+  Map<Object?, Object?>? subtitles;
 }
 
 class SpuTrackMessage {
@@ -93,7 +93,7 @@ class AddSubtitleMessage {
 
 class AudioTracksMessage {
   int? viewId;
-  Map? audios;
+  Map<Object?, Object?>? audios;
 }
 
 class AudioTrackMessage {
@@ -110,7 +110,7 @@ class AddAudioMessage {
 
 class VideoTracksMessage {
   int? viewId;
-  Map? videos;
+  Map<Object?, Object?>? videos;
 }
 
 class VideoTrackMessage {
@@ -140,7 +140,7 @@ class RendererScanningMessage {
 
 class RendererDevicesMessage {
   int? viewId;
-  Map? rendererDevices;
+  Map<Object?, Object?>? rendererDevices;
 }
 
 class RenderDeviceMessage {
