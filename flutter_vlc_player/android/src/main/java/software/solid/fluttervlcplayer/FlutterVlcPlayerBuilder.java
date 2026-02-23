@@ -187,22 +187,12 @@ public class FlutterVlcPlayerBuilder implements Messages.VlcPlayerApi {
 
     @NonNull
     @Override
-    public Messages.PlaybackSpeedMessage getPlaybackSpeed(Messages.ViewMessage arg) {
-        FlutterVlcPlayer player = vlcPlayers.get(arg.getViewId());
-        Messages.PlaybackSpeedMessage message = new Messages.PlaybackSpeedMessage();
-        message.setSpeed((double) player.getPlaybackSpeed());
-        return message;
     public Double getPlaybackSpeed(@NonNull Long playerId) {
         return (double) getPlayer(playerId).getPlaybackSpeed();
     }
 
     @Nullable
     @Override
-    public Messages.SnapshotMessage takeSnapshot(Messages.ViewMessage arg) {
-        FlutterVlcPlayer player = vlcPlayers.get(arg.getViewId());
-        Messages.SnapshotMessage message = new Messages.SnapshotMessage();
-        message.setSnapshot(player.getSnapshot());
-        return message;
     public String takeSnapshot(@NonNull Long playerId) {
         return getPlayer(playerId).getSnapshot();
     }
@@ -211,22 +201,12 @@ public class FlutterVlcPlayerBuilder implements Messages.VlcPlayerApi {
 
     @NonNull
     @Override
-    public Messages.TrackCountMessage getSpuTracksCount(Messages.ViewMessage arg) {
-        FlutterVlcPlayer player = vlcPlayers.get(arg.getViewId());
-        Messages.TrackCountMessage message = new Messages.TrackCountMessage();
-        message.setCount((long) player.getSpuTracksCount());
-        return message;
     public Long getSpuTracksCount(@NonNull Long playerId) {
         return (long) getPlayer(playerId).getSpuTracksCount();
     }
 
     @NonNull
     @Override
-    public Messages.SpuTracksMessage getSpuTracks(Messages.ViewMessage arg) {
-        FlutterVlcPlayer player = vlcPlayers.get(arg.getViewId());
-        Messages.SpuTracksMessage message = new Messages.SpuTracksMessage();
-        message.setSubtitles(player.getSpuTracks());
-        return message;
     public Map<Long, String> getSpuTracks(@NonNull Long playerId) {
         Map<Integer, String> tracks = getPlayer(playerId).getSpuTracks();
 
@@ -240,9 +220,6 @@ public class FlutterVlcPlayerBuilder implements Messages.VlcPlayerApi {
 
     @NonNull
     @Override
-    public void setSpuTrack(Messages.SpuTrackMessage arg) {
-        FlutterVlcPlayer player = vlcPlayers.get(arg.getViewId());
-        player.setSpuTrack(arg.getSpuTrackNumber().intValue());
     public Long getSpuTrack(@NonNull Long playerId) {
         return (long) getPlayer(playerId).getSpuTrack();
     }

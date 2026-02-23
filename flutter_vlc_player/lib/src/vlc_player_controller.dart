@@ -536,7 +536,9 @@ class VlcPlayerController extends ValueNotifier<VlcPlayerValue> {
   /// Sets the video's current position as a percentage between 0.0 and 1.0.
   Future<void> setPosition(double position) async {
     _throwIfNotInitialized('setPosition');
-    await vlcPlayerPlatform.setPosition(_viewId, position);
+    final duration = await vlcPlayerPlatform.getDuration(_viewId);
+    final targetMs = (duration.inMilliseconds * position).round();
+    await vlcPlayerPlatform.seekTo(_viewId, Duration(milliseconds: targetMs));
   }
 
   /// Get the video timestamp in millisecond
@@ -629,7 +631,7 @@ class VlcPlayerController extends ValueNotifier<VlcPlayerValue> {
     return spuTracksCount;
   }
 
-  /// Return all subtitle tracks as array of <Int, String>
+  /// Return all subtitle tracks as array of `<Int, String>`
   /// The key parameter is the index of subtitle which is used for changing subtitle
   /// and the value is the display name of subtitle
   Future<Map<int, String>> getSpuTracks() async {
@@ -727,7 +729,7 @@ class VlcPlayerController extends ValueNotifier<VlcPlayerValue> {
     return audioTracksCount;
   }
 
-  /// Returns all audio tracks as array of <Int, String>
+  /// Returns all audio tracks as array of `<Int, String>`
   /// The key parameter is the index of audio track which is used for changing audio
   /// and the value is the display name of audio
   Future<Map<int, String>> getAudioTracks() async {
@@ -825,7 +827,7 @@ class VlcPlayerController extends ValueNotifier<VlcPlayerValue> {
     return videoTracksCount;
   }
 
-  /// Returns all video tracks as array of <Int, String>
+  /// Returns all video tracks as array of `<Int, String>`
   /// The key parameter is the index of video track and the value is the display name of video track
   Future<Map<int, String>> getVideoTracks() async {
     _throwIfNotInitialized('getVideoTracks');
@@ -919,7 +921,7 @@ class VlcPlayerController extends ValueNotifier<VlcPlayerValue> {
     return vlcPlayerPlatform.stopRendererScanning(_viewId);
   }
 
-  /// Returns all detected renderer devices as array of <String, String>
+  /// Returns all detected renderer devices as array of `<String, String>`
   /// The key parameter is the name of cast device and the value is the display name of cast device
   Future<Map<String, String>> getRendererDevices() async {
     _throwIfNotInitialized('getRendererDevices');
